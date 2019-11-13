@@ -1,6 +1,4 @@
 from model import Base, Product
-
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -48,3 +46,18 @@ def add_to_cart(productID):
 	item = Cart(productID = productID)
 	session.add(item)
 	session.commit()
+
+# add_product("Black Pen", 20, "resources/blackPen.png", "This pen is very black")
+# add_product("Blue Pen", 12.5, "resources/bluePen.jpg", "A very blue pen")
+# add_product("Red Pen", 15, "resources/redPen.jpg", "In case you want a red pen")
+# add_product("Green Pen", 30, "resources/greenPen.png", "It is a green pen")
+
+
+# products = all_products()
+
+# for p in products:
+# 	print("name: " + p.name)
+# 	print("price: " + str(p.price))
+# 	print("pic_link: " + p.pic_link)
+# 	print("description: " + p.description)
+# 	print()
