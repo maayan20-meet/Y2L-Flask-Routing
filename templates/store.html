@@ -68,7 +68,7 @@
 
 	{% for product in products%}
 	<div class="card">
-		<img src="{{product.pic_link}}" style="width:100%">
+		<img src="{{url_for('static', filename='/'+product.pic_link)}}" style="width:100%">
 		<h1>{{product.name}}</h1>
 		<p class="price">{{product.price}}</p>
 		<p>{{product.description}}</p>

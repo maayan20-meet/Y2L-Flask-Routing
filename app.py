@@ -15,7 +15,7 @@ def home():
 
 @app.route('/store')
 def store():
-	return render_template('store.html', products=databases.all_products())
+	return render_template('store.html', products=databases.all_products(databases.createThread()))
 
 @app.route('/cart')
 def cart():
@@ -23,7 +23,15 @@ def cart():
 
 @app.route('/about')
 def about():
-	return render_template('about.html')	
+	return render_template('about.html')
+
+def createThread():
+	engine = databases.create_engine('sqlite:///database.db')
+	databases.Base.metadata.create_all(engine)
+	DBSession = databases.sessionmaker(bind=engine)
+	session = databases.DBSession()
+	return session
+
 
 if __name__ == '__main__':
     app.run(debug=True)
