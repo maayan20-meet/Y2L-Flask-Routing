@@ -4,6 +4,7 @@ import databases
 
 app = Flask(__name__)
 app.secret_key = "MY_SUPER_SECRET_KEY"
+app.config['SECRET_KEY'] = app.secret_key
 
 @app.route('/')
 def home():
@@ -17,9 +18,14 @@ def home():
 def store():
 	return render_template('store.html', products=databases.all_products(databases.createThread()))
 
-@app.route('/cart')
+@app.route('/cart/<integer:itemID')
 def cart():
-	return render_template('cart.html')
+
+	print("itemID: " + request.form['itemID'])
+	databases.add_to_cart(databases.createThread(), itemID)
+
+	return render_template('cart.html', items=databases.get_cart_items(databases.createThread()))
+
 
 @app.route('/about')
 def about():

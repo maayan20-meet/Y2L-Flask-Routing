@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Your Cart</title>
+	<style type="text/css">
+		#NavBar {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		.NavItem {
+			float: left;
+		}
+
+		.NavItem a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		/* Change the link color to #111 (black) on hover */
+		.NavItem a:hover {
+			background-color: #111;
+		}
+
+		.title {
+			height: 60px;
+			border-bottom: 1px solid #E1E8EE;
+			padding: 20px 30px;
+			color: #5E6977;
+			font-size: 18px;
+			font-weight: 400;
+		}
+
+		.item {
+			padding: 20px 30px;
+			height: 120px;
+			display: flex;
+		}
+
+		.item:nth-child(3) {
+			border-top:  1px solid #E1E8EE;
+			border-bottom:  1px solid #E1E8EE;
+		}
+	</style>
 </head>
 <body>
+	<div>
+		<ul id="NavBar">
+			<li class="NavItem"><a href="{{url_for('home')}}">Home</a></li>
+			<li class="NavItem"><a href="{{url_for('store')}}">Store</a></li>
+			<li class="NavItem"><a href="{{url_for('about')}}">About</a></li>
+		</ul>
+	</div>
 
-<!-- Delete this section when you reach this file -->
-<h1 style="font-size: 55px;position: absolute;left: 41.5%;top:28%">Cart Function</h1>
-<h1 style="font-size: 70px;position: absolute;left: 40%;bottom:50%">Coming Soon</h1>
-<!-- ------------------ -->
+	<div class="shopping-cart">
+  <!-- Title -->
+  <div class="title">
+    Shopping Bag
+  </div>
+ 
+ 	{% for item in items %}
+	<div class="item">
+
+		<div class="image">
+		<img src="item-1.png" alt="" />
+		</div>
+
+		<div class="description">
+		  <span>Common Projects</span>
+		  <span>Bball High</span>
+		  <span>White</span>
+		</div>
+
+		<div class="total-price">$549</div>
+	</div>
+
+	{% endfor %}
 
 </body>
 </html>
