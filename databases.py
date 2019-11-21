@@ -62,10 +62,10 @@ def add_to_cart(session, productID):
 	session.add(item)
 	session.commit()
 
-# add_product(createThread(), "Black Pen", 20, "../resources/blackPen.png", "This pen is very black")
-# add_product(createThread(), "Blue Pen", 12.5, "../resources/bluePen.jpg", "A very blue pen")
-# add_product(createThread(), "Red Pen", 15, "../resources/redPen.jpg", "In case you want a red pen")
-# add_product(createThread(), "Green Pen", 30, "../resources/greenPen.png", "It is a green pen")
+# add_product(createThread(), "Black Pen", 20, "/blackPen.png", "This pen is very black")
+# add_product(createThread(), "Blue Pen", 12.5, "/bluePen.jpg", "A very blue pen")
+# add_product(createThread(), "Red Pen", 15, "/redPen.jpg", "In case you want a red pen")
+# add_product(createThread(), "Green Pen", 30, "/greenPen.jpg", "It is a green pen")
 
 
 # products = all_products(createThread())
