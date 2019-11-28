@@ -39,7 +39,6 @@ def edit_img_link(session, name):
 
 	product = session.query(Product).filter_by(name=name).first()
 
-
 def delete_product(session, ID):
 
 	session.query(Product).filter_by(ID=ID).first().delete()
@@ -62,10 +61,14 @@ def add_to_cart(session, productID):
 	session.add(item)
 	session.commit()
 
-
 def get_cart_items(session):
 
 	return session.query(Cart).all()
+
+# add_product(createThread(), "Black Pen", 20, "/blackPen.png", "This pen is very black")
+# add_product(createThread(), "Blue Pen", 12.5, "/bluePen.jpg", "A very blue pen")
+# add_product(createThread(), "Red Pen", 15, "/redPen.jpg", "In case you want a red pen")
+# add_product(createThread(), "Green Pen", 30, "/greenPen.jpg", "It is a green pen")
 
 
 def get_products(session, prodList):
@@ -82,6 +85,7 @@ def get_products(session, prodList):
 # add_product(createThread(), "Blue Pen", 12.5, "bluePen.jpg", "A very blue pen")
 # add_product(createThread(), "Red Pen", 15, "redPen.jpg", "In case you want a red pen")
 # add_product(createThread(), "Green Pen", 30, "greenPen.jpg", "It is a green pen")
+
 
 
 # products = get_cart_items(createThread())
