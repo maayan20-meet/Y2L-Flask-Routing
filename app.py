@@ -15,11 +15,14 @@ def home():
 
 @app.route('/store')
 def store():
-	return render_template('store.html', products=all_products())
+	return render_template('store.html', products=all_products(createThread()))
 
 @app.route('/cart')
 def cart():
-	return render_template('cart.html')
+	if request.args.get("prodID") is not None:
+		add_to_cart(createThread(), int(prodID))
+
+	return render_template('cart.html', products=get_products(createThread(), get_cart_items(createThread())))
 
 @app.route('/about')
 def about():

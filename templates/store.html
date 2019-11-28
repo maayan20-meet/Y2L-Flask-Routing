@@ -56,6 +56,8 @@
 		.card button:hover {
 			opacity: 0.7;
 		}
+
+
 	</style>
 </head>
 <body>
@@ -67,13 +69,15 @@
 	</ul>
 
 	{% for product in products%}
+	<br>
 	<div class="card">
-		<img src="{{product.pic_link}}" style="width:100%">
+		<img src="{{url_for('static', filename=product.pic_link)}}" style="width:100%">
 		<h1>{{product.name}}</h1>
 		<p class="price">{{product.price}}</p>
 		<p>{{product.description}}</p>
-		<p><button onclick="window.location.href='{{ url_for('cart') }}'">Add to Cart</button></p>
+		<p><button onclick="window.location.href='{{ url_for(\'cart\', prodID=product.id) }}'">Add to Cart</button></p>
 	</div>
+	<br>
 	{% endfor %}
 
 </body>
