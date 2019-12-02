@@ -65,12 +65,6 @@ def get_cart_items(session):
 
 	return session.query(Cart).all()
 
-# add_product(createThread(), "Black Pen", 20, "/blackPen.png", "This pen is very black")
-# add_product(createThread(), "Blue Pen", 12.5, "/bluePen.jpg", "A very blue pen")
-# add_product(createThread(), "Red Pen", 15, "/redPen.jpg", "In case you want a red pen")
-# add_product(createThread(), "Green Pen", 30, "/greenPen.jpg", "It is a green pen")
-
-
 def get_products(session, prodList):
 
 	cartList = list()

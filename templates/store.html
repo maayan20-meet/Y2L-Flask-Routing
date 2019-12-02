@@ -75,7 +75,8 @@
 		<h1>{{product.name}}</h1>
 		<p class="price">{{product.price}}</p>
 		<p>{{product.description}}</p>
-		<p><button onclick="window.location.href='{{ url_for(\'cart\', prodID=product.id) }}'">Add to Cart</button></p>
+		<form action="{{ url_for('cart', prodID=product.id) }}" method="get" id="{{product.ID}}"></form>
+		<p><button form="{{product.ID}}">Add to Cart</button></p>
 	</div>
 	<br>
 	{% endfor %}
