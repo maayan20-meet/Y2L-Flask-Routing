@@ -41,7 +41,7 @@
 			font-size: 22px;
 		}
 
-		.card button {
+		.card a.button {
 			border: none;
 			outline: 0;
 			padding: 12px;
@@ -53,7 +53,7 @@
 			font-size: 18px;
 		}
 
-		.card button:hover {
+		.card a.button:hover {
 			opacity: 0.7;
 		}
 
@@ -75,8 +75,7 @@
 		<h1>{{product.name}}</h1>
 		<p class="price">{{product.price}}</p>
 		<p>{{product.description}}</p>
-		<form action="{{ url_for('cart', prodID=product.id) }}" method="get" id="{{product.ID}}"></form>
-		<p><button form="{{product.ID}}">Add to Cart</button></p>
+		<a href="{{url_for('cart', prodID=product.ID)}}" class="button">Add to Cart</a>
 	</div>
 	<br>
 	{% endfor %}
