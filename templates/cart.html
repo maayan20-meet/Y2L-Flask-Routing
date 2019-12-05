@@ -64,21 +64,15 @@
     Shopping Bag
   </div>
  
- 	{% for item in items %}
-	<div class="item">
-
-		<div class="image">
-		<img src="item-1.png" alt="" />
-		</div>
-
-		<div class="description">
-		  <span>Common Projects</span>
-		  <span>Bball High</span>
-		  <span>White</span>
-		</div>
-
-		<div class="total-price">$549</div>
+ 	{% for product in products %}
+	<br>
+	<div>
+		<img src="{{url_for('static', filename=product.pic_link)}}" style="width:100%">
+		<h1>{{product.name}}</h1>
+		<p class="price">{{product.price}}</p>
+		<p>{{product.description}}</p>
 	</div>
+	<br>
 
 	{% endfor %}
 
