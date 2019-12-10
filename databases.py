@@ -40,7 +40,7 @@ def edit_img_link(session, name):
 
 def delete_product(session, ID):
 
-	session.query(Product).filter_by(ID=ID).first().delete()
+	session.query(Product).filter_by(ID=ID).delete()
 	session.commit()
 
 
