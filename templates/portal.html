@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portal</title>
+</head>
+<body>
+
+	<h1>Admin Portal Page</h1>
+
+	<h2>Products</h2>
+
+	{% for product in products %}
+
+		<br>
+		<div>
+			<img src="{{url_for('static', filename=product.pic_link)}}" style="width:10%">
+			<h3>{{product.name}}</h3>
+			<p class="price">{{product.price}}</p>
+			<p>{{product.description}}</p>
+			<a href="{{url_for('edit', prodID = product.ID}}" class="button">Edit product</a>
+			<a href="{{url_for('pay')}}" class="button">Pay now</a>
+		</div>
+		<br>
+
+	{% endfor %}
+</body>
+</html>
