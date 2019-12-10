@@ -16,10 +16,12 @@ def home():
 
 @app.route('/store')
 def store():
+
 	return render_template('store.html', products=all_products(createThread()))
 
 @app.route('/addToCart/<string:prodID>')
 def addToCart(prodID):
+
 	if prodID is not None:
 		add_to_cart(createThread(), int(prodID))
 
@@ -27,16 +29,20 @@ def addToCart(prodID):
 
 @app.route('/cart')
 def cart():
+
 	products = get_products(get_cart_items(createThread()))
-	print(products)
-	for i in products:
-		printProduct(i)
 
 	return render_template('cart.html', products=products)
+
 @app.route('/about')
 def about():
 	return render_template('about.html')
 
+@app.route('/pay')
+def pay():
+
+	delete_all_items(createThread())
+	return redirect(url_for('cart'))
 
 if __name__ == '__main__':
     app.run(debug=True)

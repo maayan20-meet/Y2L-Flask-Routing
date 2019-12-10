@@ -25,7 +25,7 @@ def add_product(session, name, price, pic_link, description):
 
 def edit_product(session, ID, name, price, pic_link, description):
 
-	product = session.query(Product).filter_by(ID=ID)
+	product = session.query(Product).filter_by(ID=ID).first()
 
 	product.name = name
 	product.price = price
@@ -61,9 +61,11 @@ def add_to_cart(session, productID):
 	session.add(item)
 	session.commit()
 
+
 def get_cart_items(session):
 
 	return session.query(Cart).all()
+
 
 def get_products(items):
 
@@ -75,8 +77,16 @@ def get_products(items):
 	return cartList
 
 
-def printProduct(product):
-	print(product.name)
+def delete_all_items(session):
+
+	items = session.query(Cart).delete()
+
+	session.commit()
+
+
+# def printProduct(product):
+# 	print(product.name)
+
 # add_product(createThread(), "Black Pen", 20, "blackPen.png", "This pen is very black")
 # add_product(createThread(), "Blue Pen", 12.5, "bluePen.jpg", "A very blue pen")
 # add_product(createThread(), "Red Pen", 15, "redPen.jpg", "In case you want a red pen")
