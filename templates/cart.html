@@ -3,7 +3,7 @@
 <head>
 	<title>Your Cart</title>
 	<style type="text/css">
-		#NavBar {
+		ul {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
@@ -11,11 +11,11 @@
 			background-color: #333;
 		}
 
-		.NavItem {
+		li {
 			float: left;
 		}
 
-		.NavItem a {
+		li a {
 			display: block;
 			color: white;
 			text-align: center;
@@ -24,50 +24,27 @@
 		}
 
 		/* Change the link color to #111 (black) on hover */
-		.NavItem a:hover {
+		li a:hover {
 			background-color: #111;
 		}
-
-		.title {
-			height: 60px;
-			border-bottom: 1px solid #E1E8EE;
-			padding: 20px 30px;
-			color: #5E6977;
-			font-size: 18px;
-			font-weight: 400;
-		}
-
-		.item {
-			padding: 20px 30px;
-			height: 120px;
-			display: flex;
-		}
-
-		.item:nth-child(3) {
-			border-top:  1px solid #E1E8EE;
-			border-bottom:  1px solid #E1E8EE;
 		}
 	</style>
 </head>
 <body>
 	<div>
-		<ul id="NavBar">
-			<li class="NavItem"><a href="{{url_for('home')}}">Home</a></li>
-			<li class="NavItem"><a href="{{url_for('store')}}">Store</a></li>
-			<li class="NavItem"><a href="{{url_for('about')}}">About</a></li>
+		<ul>
+			<li><a href="{{url_for('home')}}">Home</a></li>
+			<li><a href="{{url_for('store')}}">Store</a></li>
+			<li><a href="{{url_for('cart')}}">Cart</a></li>
+			<li><a href="{{url_for('about')}}">About</a></li>
 		</ul>
 	</div>
 
-	<div class="shopping-cart">
-  <!-- Title -->
-  <div class="title">
-    Shopping Bag
-  </div>
- 
  	{% for product in products %}
+ 	
 	<br>
 	<div>
-		<img src="{{url_for('static', filename=product.pic_link)}}" style="width:100%">
+		<img src="{{url_for('static', filename=product.pic_link)}}" style="width:10%">
 		<h1>{{product.name}}</h1>
 		<p class="price">{{product.price}}</p>
 		<p>{{product.description}}</p>

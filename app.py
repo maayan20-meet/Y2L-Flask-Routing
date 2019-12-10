@@ -18,24 +18,21 @@ def home():
 def store():
 	return render_template('store.html', products=all_products(createThread()))
 
-@app.route('/cart')
-def noneCart():
-	return cart(None)
-
-
-@app.route('/cart/<string:prodID>')
-def cart(prodID):
+@app.route('/addToCart/<string:prodID>')
+def addToCart(prodID):
 	if prodID is not None:
-		print(prodID)
 		add_to_cart(createThread(), int(prodID))
 
+	return redirect(url_for('cart'))
+
+@app.route('/cart')
+def cart():
 	products = get_products(get_cart_items(createThread()))
+	print(products)
 	for i in products:
 		printProduct(i)
 
 	return render_template('cart.html', products=products)
-
-
 @app.route('/about')
 def about():
 	return render_template('about.html')

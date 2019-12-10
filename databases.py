@@ -52,7 +52,7 @@ def all_products(session):
 
 def get_product(session, ID):
 
-	return session.query(Product).filter_by(ID=ID)
+	return session.query(Product).filter_by(ID=ID).first()
 
 
 def add_to_cart(session, productID):
