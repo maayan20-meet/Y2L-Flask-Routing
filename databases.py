@@ -23,13 +23,14 @@ def add_product(session, name, price, pic_link, description):
 	session.commit()
 
 
-def edit_product(session, ID, name, price, description):
+def edit_product(session, ID, name, price, description, pic_link):
 
 	product = session.query(Product).filter_by(ID=ID).first()
 
 	product.name = name
 	product.price = price
 	product.description = description
+	product.pic_link = pic_link
 
 	session.commit()
 

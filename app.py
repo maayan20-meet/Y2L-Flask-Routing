@@ -73,10 +73,10 @@ def edit(prodID):
 		return 'You are not an admin :3'
 
 	elif request.method == 'GET':
-		return render_template('edit.html', prodID = prodID)
+		return render_template('editAdd.html', prodID = prodID)
 
 	else:
-		edit_product(createThread(), int(prodID), request.form['name'],  request.form['price'],  request.form['description'])
+		edit_product(createThread(), int(prodID), request.form['name'],  request.form['price'],  request.form['description'], request.form['link'])
 		return redirect(url_for('portal'))
 
 
