@@ -73,7 +73,7 @@ def edit(prodID):
 		return 'You are not an admin :3'
 
 	elif request.method == 'GET':
-		return render_template('editAdd.html', prodID = prodID)
+		return render_template('edit.html', prodID = prodID)
 
 	else:
 		edit_product(createThread(), int(prodID), request.form['name'],  request.form['price'],  request.form['description'], request.form['link'])
@@ -86,6 +86,18 @@ def remove(prodID):
 	delete_product(createThread(), int(prodID))
 	return redirect(url_for('portal'))
 
+
+@app.route('/add', methods = ['GET', 'POST'])
+def add():
+	if login_session['logged_in'] is False:
+		return 'You are not an admin :3'
+
+	elif request.method == 'GET':
+		return render_template('add.html')
+
+	else:
+		add_product(createThread(), request.form['name'],  request.form['price'], request.form['link'], request.form['description'])
+		return redirect(url_for('portal'))
 
 if __name__ == '__main__':
     app.run(debug=True)
